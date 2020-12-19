@@ -15,11 +15,10 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-app.get('/', (req,res) => {
-  res.send('Hellow to Ninas App');
+app.get('/', (_req,res) => {
+  res.send('Hello to Ninas App');
 });
 
-//***mongodb connection***
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
