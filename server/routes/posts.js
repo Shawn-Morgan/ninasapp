@@ -5,12 +5,10 @@ import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from 
 const router = express.Router();
 
 router.get('/', getPosts);
-
-router.get('/:id', getPost);
-
 router.post('/', createPost);
-//update
-//delete
-//like
+router.get('/:id', getPost);
+router.patch('/:id', updatePost);
+router.delete('/:id', deletePost);
+router.patch('/:id/likePost', likePost);
 
 export default router;

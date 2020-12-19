@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-//import hooks - dispatch an action features
 import { useDispatch } from 'react-redux';
 
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import { getPosts } from './actions/posts';
 import useStyles from './styles';
-//m
-import ninasapp from './images/LaineyCoveredFace.jpg';
+import ninasapp from './images/ninaheadshot.jpg';
 
 const App = () => {
-  // const [currentId, setCurrentId] = useState(0);
+  const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
 
-
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">ninasapp</Typography>
+        <Typography className={classes.heading} variant="h2" align="center">Maskholders Marketplace</Typography>
         <img className={classes.image} src={ninasapp} alt="icon" height="60" />
       </AppBar>
       <Grow in>
